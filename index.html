@@ -1,462 +1,1365 @@
 <!DOCTYPE html>
 <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DevWeek 2025 - TCClubs</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <meta name="description" content="DevWeek 2026, une semaine immersive d’ateliers, conférences, hackathons et partages communautaires organisée par Tech Communities Clubs Niger.">
+        <meta name="keywords" content="DevWeek, Tech Communities Clubs, ateliers, conférences, hackathons, Niger, technologie, innovation">
+        <meta name="author" content="Tech Communities Clubs Niger Idrissa ABBA ">
+        <meta name="robots" content="index, follow">
+        <meta property="og:title" content="DevWeek 2026 - TCClubs">
+        <meta property="og:description" content="Rejoignez DevWeek 2025 pour une semaine immersive autour des ateliers, conférences, hackathons et partages communautaires.">
+        <meta property="og:image" content="https://devweek.org/assets/devweek.jpg">
+        <meta property="og:url" content=https://devweek.org>
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="DevWeek 2025">
+        <meta property="og:locale" content="fr_FR">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <link rel="shortcut icon" href="./assets/icon.png" type="image/x-icon">
+        <link rel="canonical" href="https://devweek.org/">
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVDNWW1LC0"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        gtag('config', 'G-BVDNWW1LC0');
+        </script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #040999);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .animated-underline {
+            position: relative;
+            display: inline-block;
+        }
+        .animated-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .animated-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .hidden { 
+            display: none !important;
+        }
 
-    <title> DevWeek </title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/css/intlTelInput.css">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BVDNWW1LC0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BVDNWW1LC0');
-</script>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/js/intlTelInput.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
-    <style>
-        .dropzone {
-            border: 2px dashed #b8b8b9;
-            transition: all 0.3s ease;
+        @media screen and (max-width: 768px) {
+            .nav-link {
+                display: none;
+                flex-direction: column;
+                margin-top: 1rem;
+            }
+            .mobile-menu {
+                display: block;
+            }
+        }
+         
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .animated { animation: fadeIn 0.5s ease-out; }
+        .current {
+            color: #8b5cf6 !important;
+            font-weight: bold;
         }
 
 
-        .dropzone:hover {
-            border-color: #6B7280;
-            background-color: #F9FAFB;
-        }
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
 
-        .dropzone.dragover {
-            border-color: #3B82F6;
-            background-color: #EFF6FF;
-        }
+.scroll-animate.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 3rem 2rem;
+  transition: all 0.4s ease;
+}
 
-        #flyer-container {
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
+.glass-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  border-color: rgba(255, 255, 255, 0.35);
+}
 
-        #flyer-canvas {
-            touch-action: none;
-            /* Empêche le zoom tactile sur mobile */
-        }
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s ease;
+}
+
+.scroll-animate.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.glass-footer-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.4s ease;
+}
+
+.glass-footer-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.footer-link {
+  position: relative;
+  color: #d1d5db;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(99, 102, 241, 0.9);
+}
+
+.social-glow {
+  color: #d1d5db;
+  transition: all 0.3s ease;
+}
+
+.social-glow:hover {
+  color: #fff;
+  transform: scale(1.15);
+  text-shadow: 0 0 12px rgba(139, 92, 246, 0.9);
+}
+
     </style>
 </head>
-
-<body class="bg-gradient-to-br from-indigo-50 to-blue-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-            <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl sm:tracking-tight lg:text-4xl">
-                DevWeek 2025
-            </h1>
-            <p class="mt-5 max-w-xl mx-auto text-xl text-gray-500">
-                Generer votre flyer de participation au DevWeek
-            </p>
-        </div>
-
-        <div class="flex flex-col lg:flex-row gap-8">
-            <!-- Canvas Container -->
-            <div class="flex-1">
-                <div id="flyer-container"
-                    class="bg-white rounded-xl overflow-hidden shadow-xl relative w-full aspect-square">
-                    <canvas id="flyer-canvas" class="absolute top-0 left-0 w-full h-full"></canvas>
-                    <div id="canvas-overlay" class="absolute inset-0 pointer-events-none"></div>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                       <img src="./assets/icon.png" alt="icon devweek" class="text-1xl py-3 w-20 relative">
+                     <!---   <i class="fas fa-laptop-code text-indigo-600 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold gradient-text">DevWeek</span>  -->
+                    </a>
                 </div>
-                <div id="download-btn-container" class="mt-6 hidden">
-                    <button id="download-btn"
-                        class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300">
-                        Téléchargez
+                
+                <!-- Correction: Remove 'hidden' class from this div -->
+                <div class=" md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-indigo-600 animated-underline nav-link" data-section="home">Accueil</a>
+                    <a href="#" class="text-gray-700 hover:text-indigo-600 animated-underline nav-link" data-section="about">À propos</a>
+                    <a href="#" class="text-gray-700 hover:text-indigo-600 animated-underline nav-link" data-section="schedule">Programme</a>
+                 <!----- <a href="#" class="text-gray-700 hover:text-indigo-600 animated-underline nav-link" data-section="register">Inscription</a> ---->
+                    <a href="#" class="text-gray-700 hover:text-indigo-600 animated-underline nav-link" data-section="contact">Contact</a>
+                </div>
+                <div class="flex items-center">
+                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md transition duration-300 ease-in-out">
+                       <a href="./flyer.html"> J'y serais</a>
+                    </button>
+                    <button id="mobile-menu-button" class="md:hidden text-gray-500 ml-4">
+                        <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
+        </div>
+        <!-- Menu mobile -->
+        <div id="mobile-menu" class="hidden bg-white border-t border-gray-200 md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md nav-link" data-section="home">Accueil</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md nav-link" data-section="about">À propos</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md nav-link" data-section="schedule">Programme</a>
+          <!---      <a href="#" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md nav-link" data-section="register">Inscription</a>  --->
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md nav-link" data-section="contact">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-            <!-- Form Container -->
-            <div class="flex-1">
-                <div class="bg-white rounded-xl shadow-xl p-6">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Mise en page</h2>
+    <!-- Section Accueil -->
+    <section id="home" class="section bg-gradient-to-r from-blue-50 to-purple-50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-full lg:w-1/2 mb-10 md:mb-0">
 
-                    <div class="space-y-6">
-                        <!-- Upload Section -->
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Votre photo</label>
-                            <div id="dropzone" class="dropzone rounded-lg p-8 text-center cursor-pointer">
-                                <div class="space-y-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-12 w-12 text-gray-400"
-                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                    </svg>
-                                    <p class="text-sm text-gray-600">
-                                        <span class="font-medium text-indigo-600">Cliquez pour upload</span> ou
-                                        glissez-déposez
-                                    </p>
-                                    <p class="text-xs text-gray-500">PNG, JPG jusqu'à 5MB</p>
-                                </div>
-                                <input id="file-upload" type="file" accept="image/*" class="hidden">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+                     <span class="gradient-text">DevWeek</span> <br> 2026
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-gray-600 mb-8">
+                        Une semaine immersive d’ateliers, conférences, hackathons et partages communautaires. Rejoins les passionnés du numérique pour façonner l’avenir de la tech !
+                    </p>
+
+                    <div id="countdown" class="mb-8 text-lg text-indigo-700 font-bold"></div>
+
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <!-- Bouton S'inscrire -->
+                        <button id="openModal" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-md transition duration-300 ease-in-out font-medium">
+                            S'inscrire
+                        </button>
+
+                        <button class="border border-indigo-600 text-indigo-600 hover:bg-indigo-50 px-6 py-3 rounded-md transition duration-300 ease-in-out font-medium">
+                            <a href="#" class="nav-link" data-section="about" style="display:contents !important;">
+                                En savoir plus
+                            </a>
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-full lg:w-1/2">
+                    <div class="relative">
+                        <div class="w-full h-96 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-xl shadow-lg flex items-center justify-center">
+                            <img src="./assets/devweek.jpg" alt="" class="w-full h-full object-cover rounded-xl p-0">
+                        </div>
+                        <div class="absolute -top-6 -left-6 w-32 h-32 bg-yellow-400 rounded-lg shadow-lg flex items-center justify-center">
+                            <i class="fas fa-code text-white text-4xl"></i>
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-green-400 rounded-lg shadow-lg flex items-center justify-center">
+                            <i class="fas fa-users text-white text-4xl"></i>
+                        </div>
+                    </div>
+                </div>
+                                        <!-- Modal -->
+                        <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+                            <div class="bg-white rounded-lg shadow-lg max-w-sm w-full p-6 text-center">
+                            <h2 class="text-2xl font-bold mb-4 text-red-800">Inscription - DevWeek 2026</h2>
+                            <p class="text-gray-600 mb-6">Les inscriptions ouvrent bientôt !</p>
+                            <p class="text-green-600 p-2">Revenez plus tard !</p>
+                            <button id="closeModal" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium transition duration-300">
+                                Fermer
+                            </button>
                             </div>
                         </div>
-
-                        <!-- Position Controls -->
-                        <div id="position-controls" class="hidden space-y-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Position</label>
-                                <div class="grid grid-cols-3 gap-2">
-                                    <button id="move-left" class="bg-gray-100 hover:bg-gray-200 p-2 rounded">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-auto" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M15 19l-7-7 7-7" />
-                                        </svg>
-                                    </button>
-                                    <button id="move-up" class="bg-gray-100 hover:bg-gray-200 p-2 rounded">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-auto" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 15l7-7 7 7" />
-                                        </svg>
-                                    </button>
-                                    <button id="move-right" class="bg-gray-100 hover:bg-gray-200 p-2 rounded">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-auto"
-                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M9 5l7 7-7 7" />
-                                        </svg>
-                                    </button>
-                                    <button id="move-down"
-                                        class="bg-gray-100 hover:bg-gray-200 p-2 rounded col-start-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-auto"
-                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div>
-                                <label for="zoom"
-                                    class="block text-sm font-medium text-gray-700 mb-2">Zoom</label>
-                                <input type="range" id="zoom" min="10" max="300" value="100"
-                                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
-                            </div>
-
-                            <div>
-                                <label for="rotation"
-                                    class="block text-sm font-medium text-gray-700 mb-2">Rotation</label>
-                                <input type="range" id="rotation" min="0" max="360" value="0"
-                                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
-                            </div>
-
-                            <div>
-                                <label for="opacity"
-                                    class="block text-sm font-medium text-gray-700 mb-2">Opacité</label>
-                                <input type="range" id="opacity" min="20" max="100" value="100"
-                                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
-                            </div>
+            </div>
+            <div class="mt-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4 text-center">La DevWeek ?</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        DevWeek est une semaine d’activités techniques organisée par la TCC (Tech Communities Clubs). Elle rassemble étudiants, développeurs, designers et passionnés autour d’un même objectif : apprendre, construire et innover ensemble.
+                    </p>
+               </div>
+               <h2 class="text-3xl font-bold text-gray-900 m-6 text-center"> 
+                Un événement clé axé sur 
+               </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 card-hover text-center">
+                        <div class="w-16 h-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-comments text-indigo-600 text-2xl"></i>
                         </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Apprentissage</h3>
+                        <p class="text-gray-600">
+                            Découvrez les dernières technologies et bonnes pratiques avec des experts du secteur.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 card-hover text-center">
+                        <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-handshake text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Réseautage</h3>
+                        <p class="text-gray-600">
+                            Rencontrez des professionnels et passionnés qui partagent vos intérêts.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 card-hover text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-lightbulb text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Inspiration</h3>
+                        <p class="text-gray-600">
+                            Trouvez de nouvelles idées et perspectives pour vos projets.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <section class="relative py-28 bg-gradient-to-br from-indigo-900 via-gray-900 to-black overflow-hidden">
+  
+  <!-- Glow background -->
+  <div class="absolute inset-0">
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-indigo-600/30 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 right-0 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Title -->
+    <div class="text-center mb-20">
+      <h2 class="text-4xl md:text-5xl font-bold text-white">
+        Notre impact en chiffres
+      </h2>
+      <p class="text-gray-300 mt-4">
+        Des résultats concrets, visibles et mesurables
+      </p>
+    </div>
+
+    <!-- Glass cards -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-10">
+
+      <!-- 1 -->
+      <div class="scroll-animate glass-card text-center">
+        <h3 class="text-5xl font-extrabold text-white mb-3">
+          <span class="counter" data-target="+150">0</span>+
+        </h3>
+        <p class="text-gray-300 font-medium">Participants</p>
+      </div>
+
+      <!-- 2 -->
+      <div class="scroll-animate glass-card text-center">
+        <h3 class="text-5xl font-extrabold text-white mb-3">
+          <span class="counter" data-target="+10">0</span>
+        </h3>
+        <p class="text-gray-300 font-medium">Événements organisés</p>
+      </div>
+
+      <!-- 3 -->
+      <div class="scroll-animate glass-card text-center">
+        <h3 class="text-5xl font-extrabold text-white mb-3">
+          <span class="counter" data-target="+5">0</span>+
+        </h3>
+        <p class="text-gray-300 font-medium">Projets développés</p>
+      </div>
+
+      <!-- 4 -->
+      <div class="scroll-animate glass-card text-center">
+        <h3 class="text-5xl font-extrabold text-white mb-3">
+          <span class="counter" data-target="+10">0</span>
+        </h3>
+        <p class="text-gray-300 font-medium">Communautés partenaires</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+    
+    <section id="about" class="section hidden py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="md:col-span-2">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">À propos de DevWeek</h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        DevWeek est une initiative des Tech Communities Clubs(TCC) du NIGER, regroupant des etudiants et jeunes professionnels passionnes par la tech et engages pour la transformation digitale du pays. 
+                    </p>
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-indigo-700 mb-2">Notre mission</h3>
+                        <p class="text-gray-700 mb-3">
+                            Nous croyons en la puissance de la communauté pour accélérer l'apprentissage et l'innovation. DevWeek a pour objectif de :
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-600">
+                            <li>Promouvoir les dernières technologies et tendances</li>
+                            <li>Créer un espace d'échange entre experts et débutants</li>
+                            <li>Favoriser la collaboration interdisciplinaire</li>
+                            <li>Inspirer la prochaine génération de développeurs</li>
+                        </ul>
+                    </div>
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-indigo-700 mb-2">La TCC</h3>
+                        <p class="text-gray-700">
+                            La Tech Community Club est une organisation à but non lucratif qui œuvre depuis 2024 pour le développement de l'écosystème tech à travers des événements, des ateliers et des programmes de mentorat.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="bg-indigo-50 rounded-xl shadow-md p-6 mb-8">
+                        <h3 class="text-lg font-semibold text-indigo-700 mb-4">Chiffres clés</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><span class="font-bold text-2xl text-indigo-600">20+</span> Evenements(formation/conférences) organises</li>
+                            <li><span class="font-bold text-2xl text-indigo-600">650+</span> participants cumulés</li>
+                            <li><span class="font-bold text-2xl text-indigo-600">250+</span> membres inscrits dans les clubs</li>
+                            <li><span class="font-bold text-2xl text-indigo-600">30+</span> ateliers pratiques</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-xl shadow p-6">
+                        <h3 class="text-lg font-semibold text-indigo-700 mb-2">Notre équipe</h3>
+                        <p class="text-gray-700">
+                            Une équipe de bénévoles passionnés travaille pour organiser cet événement et garantir une expérience exceptionnelle aux participants.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <footer>
-                <div class="text-center mb-12">
-            <p class="mt-5 max-w-xl mx-auto text-xl text-gray-500">
-         DevWeek 2025 &copy; TCC-EPI
-            </p>
+    </section>
+
+    <!-- Section Programme -->
+    <section id="schedule" class="section hidden py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Programme de la semaine</h2>
+            <div class="space-y-8">
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-indigo-700 mb-4">Jeudi 24 Juillet - Lancement</h3>
+                    <ul>
+                        <li class="flex justify-between border-b py-2">
+                            <span class="font-bold w-40">14:45 - 15:15</span>
+                            <span class="flex-1">Presentation du Programme </span>
+                            <span class="text-gray-500 w-40 text-right">Organizer devweek</span>
+                        </li>
+                        <li class="flex justify-between border-b py-2">
+                            <span class="font-bold w-40">15 : 15 - 16 : 10</span>
+                            <span class="flex-1">Atelier : Softskills d'un developpeur</span>
+                            <span class="text-gray-500 w-40 text-right">Speaker</span>
+                        </li>
+                        <li class="flex justify-between border-b py-2">
+                            <span class="font-bold w-40">16:30 - 17:45</span>
+                            <span class="flex-1">Pitch Deck</span>
+                            <span class="text-gray-500 w-40 text-right">Speaker</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-indigo-700 mb-4">Vendredi 25 Juillet - Ateliers</h3>
+                    <ul>
+                        <li class="flex justify-between border-b py-2">
+                            <span class="font-bold w-40">14:45 - 16:10</span>
+                            <span class="flex-1">Atelier: Git/Github</span>
+                            <span class="text-gray-500 w-40 text-right">Speaker</span>
+                        </li>
+                        <li class="flex justify-between py-2">
+                            <span class="font-bold w-40">16:30 - 17:45</span>
+                            <span class="flex-1">Atelier: API</span>
+                            <span class="text-gray-500 w-40 text-right">Speaker</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-indigo-700 mb-4">Samedi 26 Juillet - Conférences / Final Hackathon</h3>
+                    <ul>
+                        <li class="flex justify-between border-b py-2">
+                            <span class="font-bold w-40">09:20 - 13:20</span>
+                            <span class="flex-1">Presentation des projets du Hackathon au jury</span>
+                            <span class="text-gray-500 w-40 text-right">Equipes Finalistes</span>
+                        </li>
+                        <li class="flex justify-between py-2">
+                            <span class="font-bold w-40">14:00 - 15:30</span>
+                            <span class="flex-1">Deliberation des resultats</span>
+                            <span class="text-gray-500 w-40 text-right">Jury</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <p>Le programme complet sera disponible prochainement avec plus de détails sur chaque session.</p>
+                <a href="#" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-md font-medium transition duration-300 ease-in-out nav-link mt-4 inline-block" data-section="register">Réserver ma place</a>
+            </div>
         </div>
-       
-    </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const EXPORT_SIZE = 1080; // Taille d'export fixe
-            const container = document.getElementById('flyer-container');
-            const canvasEl = document.getElementById('flyer-canvas');
-            let canvasWidth = container.offsetWidth;
+    </section>
 
-            // Initialiser le canvas avec la taille d'affichage
-            const canvas = new fabric.Canvas('flyer-canvas', {
-                selection: false,
-                backgroundColor: '#fff',
-                width: canvasWidth,
-                height: canvasWidth,
-                preserveObjectStacking: true
-            });
+    <!-- Section Inscription -->
+<!-- Notification container -->
+<div id="notification-container" class="fixed top-5 right-5 z-50 space-y-3"></div>
 
-            // Variables
-            let baseImage = null; // L'flyer (premier plan)
-            let backgroundImage = null; // L'image uploadée (arrière-plan)
-            const dropzone = document.getElementById('dropzone');
-            const fileInput = document.getElementById('file-upload');
-            const positionControls = document.getElementById('position-controls');
-            const downloadBtnContainer = document.getElementById('download-btn-container');
+<section id="register" class="section hidden py-16 bg-gray-50">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">
+      Inscription à DevWeek 2025
+    </h2>
 
-            // Load base image (flyer)
-            const baseImageUrl = '/dark.png';
-            fabric.Image.fromURL(baseImageUrl, function(img) {
-                const scale = canvasWidth / img.width;
-                img.set({
-                    scaleX: scale,
-                    scaleY: scale,
-                    left: 0,
-                    top: 0,
-                    selectable: false,
-                    evented: false,
-                    lockMovementX: true,
-                    lockMovementY: true,
-                    hasControls: false,
-                    hasBorders: false
-                });
-                canvas.add(img);
-                baseImage = img;
-                canvas.renderAll();
-            });
+    <form id="register-form" class="bg-white rounded-xl shadow-md p-8 space-y-6">
+      <div>
+        <label for="nom" class="block font-semibold mb-1">Nom complet *</label>
+        <input type="text" id="nom" name="nom" required
+          class="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-300" />
+      </div>
 
-            // Make canvas responsive
-            function resizeCanvas() {
-                canvasWidth = container.offsetWidth;
-                canvas.setWidth(canvasWidth);
-                canvas.setHeight(canvasWidth);
+      <div>
+        <label for="email" class="block font-semibold mb-1">Email</label>
+        <input type="email" id="email" name="email" required
+          class="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-300" />
+      </div>
 
-                // Resize images if they exist
-                if (baseImage) {
-                    const scale = canvasWidth / (baseImage.width * baseImage.scaleX);
-                    baseImage.scale(scale);
-                    baseImage.setCoords();
-                }
+      <div>
+        <label for="numero" class="block font-semibold mb-1">Téléphone *</label>
+        <input type="tel" id="numero" name="numero" required
+          class="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-300" />
+      </div>
 
-                if (backgroundImage) {
-                    const scale = (canvasWidth / (backgroundImage.width * backgroundImage.scaleX)) * (
-                        backgroundImage.scaleX);
-                    backgroundImage.scale(scale);
-                    backgroundImage.setCoords();
-                }
+      <div>
+        <label for="structure" class="block font-semibold mb-1">Structure/École</label>
+        <input type="text" id="structure" name="structure"
+          class="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-300" />
+      </div>
 
-                canvas.renderAll();
-            }
+      <div>
+        <label for="profession" class="block font-semibold mb-1">Profession/Domaine</label>
+        <textarea id="profession" name="profession"
+          class="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-300"></textarea>
+      </div>
 
-            window.addEventListener('resize', resizeCanvas);
+      <div class="text-center">
+        <button type="submit"
+          class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-md font-medium transition duration-300 ease-in-out">
+          Valider l'inscription
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
 
-            // Event Listeners
-            dropzone.addEventListener('click', () => fileInput.click());
 
-            dropzone.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                dropzone.classList.add('dragover');
-            });
-
-            dropzone.addEventListener('dragleave', () => {
-                dropzone.classList.remove('dragover');
-            });
-
-            dropzone.addEventListener('drop', (e) => {
-                e.preventDefault();
-                dropzone.classList.remove('dragover');
-
-                if (e.dataTransfer.files.length) {
-                    fileInput.files = e.dataTransfer.files;
-                    handleImageUpload(e.dataTransfer.files[0]);
-                }
-            });
-
-            fileInput.addEventListener('change', (e) => {
-                if (e.target.files.length) {
-                    handleImageUpload(e.target.files[0]);
-                }
-            });
-
-            // Movement controls
-            document.getElementById('move-left').addEventListener('click', () => moveImage(-20, 0));
-            document.getElementById('move-right').addEventListener('click', () => moveImage(20, 0));
-            document.getElementById('move-up').addEventListener('click', () => moveImage(0, -20));
-            document.getElementById('move-down').addEventListener('click', () => moveImage(0, 20));
-
-            document.getElementById('zoom').addEventListener('input', (e) => {
-                if (backgroundImage) {
-                    const scale = e.target.value / 100;
-                    backgroundImage.scale(scale);
-                    canvas.renderAll();
-                }
-            });
-
-            document.getElementById('rotation').addEventListener('input', (e) => {
-                if (backgroundImage) {
-                    backgroundImage.set('angle', parseInt(e.target.value));
-                    canvas.renderAll();
-                }
-            });
-
-            document.getElementById('opacity').addEventListener('input', (e) => {
-                if (backgroundImage) {
-                    backgroundImage.set('opacity', parseInt(e.target.value) / 100);
-                    canvas.renderAll();
-                }
-            });
-
-            // Download button
-            document.getElementById('download-btn').addEventListener('click', downloadCanvas);
-
-            // Functions
-            function handleImageUpload(file) {
-                if (!file.type.match('image.*')) {
-                    alert('Veuillez sélectionner une image valide');
-                    return;
-                }
-
-                const reader = new FileReader();
-
-                reader.onload = function(e) {
-                    fabric.Image.fromURL(e.target.result, function(img) {
-                        // Remove previous background if exists
-                        if (backgroundImage) {
-                            canvas.remove(backgroundImage);
-                        }
-
-                        // Calculate scale to fit width
-                        const initialScale = canvasWidth / img.width;
-
-                        img.set({
-                            left: canvasWidth / 2,
-                            top: canvasWidth / 2,
-                            originX: 'center',
-                            originY: 'center',
-                            scaleX: initialScale,
-                            scaleY: initialScale,
-                            selectable: false,
-                            evented: true, // Permet de déplacer l'image
-                            hasControls: false,
-                            hasBorders: false,
-                            lockRotation: false,
-                            lockScalingX: false,
-                            lockScalingY: false,
-                            lockMovementX: false,
-                            lockMovementY: false,
-                            opacity: 1
-                        });
-
-                        canvas.add(img);
-                        backgroundImage = img;
-
-                        // S'assurer que l'flyer reste au premier plan
-                        if (baseImage) {
-                            canvas.bringToFront(baseImage);
-                        }
-
-                        // Activer le déplacement par glisser-déposer
-                        img.on('mousedown', function() {
-                            canvas.setActiveObject(img);
-                        });
-
-                        img.on('moved', function() {
-                            canvas.renderAll();
-                        });
-
-                        // Show controls and download button
-                        positionControls.classList.remove('hidden');
-                        downloadBtnContainer.classList.remove('hidden');
-
-                        // Update sliders
-                        document.getElementById('zoom').value = 100;
-                        document.getElementById('rotation').value = 0;
-                        document.getElementById('opacity').value = 100;
-
-                        canvas.renderAll();
-                    });
-                };
-
-                reader.readAsDataURL(file);
-
-                // Update dropzone appearance
-                dropzone.innerHTML = `
-                    <div class="flex items-center justify-center space-x-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                        </svg>
-                        <span class="text-sm font-medium text-gray-700">${file.name}</span>
+        <!-- Section Contact -->
+        <section id="contact" class="section hidden py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Contactez-nous</h2>
+                <div class="md:flex md:space-x-8">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <div class="bg-indigo-50 rounded-xl shadow-md p-6 mb-8">
+                            <h3 class="text-lg font-semibold text-indigo-700 mb-4">Coordonnées</h3>
+                            <p><strong>Email:</strong> <a href="mailto:allo@devweek.org">allo@devweek.org</a></p>
+                            <p><strong>Téléphone:</strong> +227 99 410 009 / 74 257 286 / 93 223 679</p>
+                            <p><strong>Adresse:</strong> Niamey-Niger</p>
+                            <h3 class="text-lg font-semibold text-indigo-700 mt-6 mb-2">TCClubs</h3>
+                            <p>www.tcc.hyver.org</p>
+                            <p>info@hyver.org</p>
+                            <h3 class="text-lg font-semibold text-indigo-700 mt-6 mb-2">Réseaux sociaux</h3>
+                            <div class="flex gap-4 mt-2">
+                                <a href="#"><i class="fab fa-facebook text-2xl text-indigo-600"></i></a>
+                                <a href="#"><i class="fab fa-twitter text-2xl text-indigo-600"></i></a>
+                                <a href="#"><i class="fab fa-linkedin text-2xl text-indigo-600"></i></a>
+                            
+                            </div>
+                        </div>
                     </div>
-                `;
-            }
+                    <div class="md:w-1/2">
+                        <div class="bg-white rounded-xl shadow p-6">
+                            <h3 class="text-lg font-semibold text-indigo-700 mb-2">Envoyez-nous un message</h3>
+                            <form id="form" class="space-y-4">
+                                <div>
+                                    <label for="contact-nom" class="block font-semibold mb-1">Nom</label>
+                                    <input type="text" id="contact-nom" name="name" class="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-300">
+                                </div>
+                                <div>
+                                    <label for="contact-email" class="block font-semibold mb-1">Email *</label>
+                                    <input type="email" id="contact-email" name="email" required class="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-300">
+                                </div>
+                                <div>
+                                    <label for="contact-subject" class="block font-semibold mb-1">Objet</label>
+                                    <input type="text" id="contact-subject" name="objet" class="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-300">
+                                </div>
+                                <div>
+                                    <label for="contact-message" class="block font-semibold mb-1">Message *</label>
+                                    <textarea id="contact-message" name="message" required class="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-300"></textarea>
+                                </div>
+                                <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-md font-medium transition duration-300 ease-in-out">
+                                    Envoyer
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            function moveImage(deltaX, deltaY) {
-                if (backgroundImage) {
-                    backgroundImage.set({
-                        left: backgroundImage.left + deltaX,
-                        top: backgroundImage.top + deltaY
-                    });
-                    canvas.renderAll();
+        <div class="mx-auto my-5 text-center ">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Edition Precedante - 2025</h2>
+        </div>
+
+
+        <section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-14">
+      Nos Événements Passés
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+      <!-- 1 -->
+      <div onclick="openModal(this)" data-img="./assets/fin.png"
+        data-title="Lancement du Hackathon"
+        data-desc="Digitaliser pour développer : le rôle des jeunes dans la transformation numérique du Niger"
+        class="scroll-animate group cursor-pointer bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition">
+        <div class="md:flex">
+          <div class="md:w-2/4 overflow-hidden">
+            <img src="./assets/fin.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+          </div>
+          <div class="md:w-2/4 p-6">
+            <h3 class="text-xl font-semibold mb-3">Lancement du Hackathon</h3>
+            <p class="text-gray-600">Digitaliser pour développer : le rôle des jeunes dans la transformation numérique du Niger</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div onclick="openModal(this)" data-img="./assets/w2.jpg"
+        data-title="Workshop 1 - Hackathon"
+        data-desc="Une immersion profonde dans l'univers du design UX / UI"
+        class="scroll-animate group cursor-pointer bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition">
+        <div class="md:flex">
+          <div class="md:w-2/4 overflow-hidden">
+            <img src="./assets/w2.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+          </div>
+          <div class="md:w-2/4 p-6">
+            <h3 class="text-xl font-semibold mb-3">Workshop 1 - Hackathon</h3>
+            <p class="text-gray-600">Une immersion profonde dans l'univers du design UX / UI</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div onclick="openModal(this)" data-img="./assets/workshop 1.png"
+        data-title="Workshop 2 - Hackathon"
+        data-desc="Découverte du Design Thinking et prototypage avec Figma"
+        class="scroll-animate group cursor-pointer bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition">
+        <div class="md:flex">
+          <div class="md:w-2/4 overflow-hidden">
+            <img src="./assets/workshop 1.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+          </div>
+          <div class="md:w-2/4 p-6">
+            <h3 class="text-xl font-semibold mb-3">Workshop 2 - Hackathon</h3>
+            <p class="text-gray-600">Découverte du Design Thinking et prototypage avec Figma</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div onclick="openModal(this)" data-img="./assets/fin-2.png"
+        data-title="Workshop 3 - Hackathon"
+        data-desc="Architecture et modélisation pour applications solides"
+        class="scroll-animate group cursor-pointer bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition">
+        <div class="md:flex">
+          <div class="md:w-2/4 overflow-hidden">
+            <img src="./assets/fin-2.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+          </div>
+          <div class="md:w-2/4 p-6">
+            <h3 class="text-xl font-semibold mb-3">Workshop 3 - Hackathon</h3>
+            <p class="text-gray-600">Architecture et modélisation pour applications solides</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div onclick="openModal(this)" data-img="./assets/IA.png"
+        data-title="Workshop 4 - Hackathon"
+        data-desc="Intégration des LLMs et API Google Gemini"
+        class="scroll-animate group cursor-pointer bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition">
+        <div class="md:flex">
+          <div class="md:w-2/4 overflow-hidden">
+            <img src="./assets/IA.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+          </div>
+          <div class="md:w-2/4 p-6">
+            <h3 class="text-xl font-semibold mb-3">Workshop 4 - Hackathon</h3>
+            <p class="text-gray-600">Intégration des LLMs et API Google Gemini</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div onclick="openModal(this)" data-img="./assets/ORM.png"
+        data-title="Workshop 5 - Hackathon"
+        data-desc="Comprendre les API et les bases de données sans SQL"
+        class="scroll-animate group cursor-pointer bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition">
+        <div class="md:flex">
+          <div class="md:w-2/4 overflow-hidden">
+            <img src="./assets/ORM.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+          </div>
+          <div class="md:w-2/4 p-6">
+            <h3 class="text-xl font-semibold mb-3">Workshop 5 - Hackathon</h3>
+            <p class="text-gray-600">Comprendre les API et les bases de données sans SQL</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div onclick="openModal(this)" data-img="./assets/semi-1.png"
+        data-title="Demi-Finale - Hackathon"
+        data-desc="Sélection des meilleurs projets"
+        class="scroll-animate group cursor-pointer bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition">
+        <div class="md:flex">
+          <div class="md:w-2/4 overflow-hidden">
+            <img src="./assets/semi-1.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+          </div>
+          <div class="md:w-2/4 p-6">
+            <h3 class="text-xl font-semibold mb-3">Demi-Finale - Hackathon</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div onclick="openModal(this)" data-img="./assets/lour.png"
+        data-title="Workshop 1 - DevWeek"
+        data-desc="Session DevWeek"
+        class="scroll-animate group cursor-pointer bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition">
+        <div class="md:flex">
+          <div class="md:w-2/4 overflow-hidden">
+            <img src="./assets/lour.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+          </div>
+          <div class="md:w-2/4 p-6">
+            <h3 class="text-xl font-semibold mb-3">Workshop 1 - DevWeek</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9 -->
+      <div onclick="openModal(this)" data-img="./assets/gilb.png"
+        data-title="Workshop 2 - DevWeek"
+        data-desc="Session avancée DevWeek"
+        class="scroll-animate group cursor-pointer bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition">
+        <div class="md:flex">
+          <div class="md:w-2/4 overflow-hidden">
+            <img src="./assets/gilb.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+          </div>
+          <div class="md:w-2/4 p-6">
+            <h3 class="text-xl font-semibold mb-3">Workshop 2 - DevWeek</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div onclick="openModal(this)" data-img="./assets/JUD.png"
+        data-title="Workshop 3 - DevWeek"
+        data-desc="APIs et bases de données"
+        class="scroll-animate group cursor-pointer bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition">
+        <div class="md:flex">
+          <div class="md:w-2/4 overflow-hidden">
+            <img src="./assets/JUD.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+          </div>
+          <div class="md:w-2/4 p-6">
+            <h3 class="text-xl font-semibold mb-3">Workshop 3 - DevWeek</h3>
+            <p class="text-gray-600">APIs et bases de données</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div onclick="openModal(this)" data-img="./assets/final.png"
+        data-title="Finale - Hackathon"
+        data-desc="Pitchs, démos et délibération du jury"
+        class="scroll-animate group cursor-pointer bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition">
+        <div class="md:flex">
+          <div class="md:w-2/4 overflow-hidden">
+            <img src="./assets/final.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+          </div>
+          <div class="md:w-2/4 p-6">
+            <h3 class="text-xl font-semibold mb-3">Finale - Hackathon</h3>
+            <p class="text-gray-600">Pitchs, démos et délibération du jury</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-16">
+      <p class="text-gray-600 mb-6">
+        Rendez-vous à la prochaine édition pour une semaine plus éthique.
+      </p>
+      <a href="#" class="bg-indigo-600 hover:bg-indigo-700 text-white px-7 py-3 rounded-lg font-medium transition">
+        Voir le programme 2025
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+           <div class="my-5 text-center">
+                <h2 class="text-1xl font-medium text-gray-900 text-center">Decouvrez les equipes finalistes du Hackathon</h2>
+            </div>
+
+<section>
+<!-- Carousel Section -->
+<div class="relative w-full h-[500px] overflow-hidden">
+  <!-- Carousel Wrapper -->
+  <div class="flex animate-slide">
+    <!-- Slide 1 -->
+    <div class="w-full flex-shrink-0 h-[500px] bg-cover bg-center relative" style="background-image: url('/assets/agritech.jpg');">
+      <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+        <h2 class="text-white text-4xl font-bold animate-fade-in">Categorie : AgriTech</h2>
+      </div>
+    </div>
+    <!-- Slide 2 -->
+    <div class="w-full flex-shrink-0 h-[500px] bg-cover bg-center relative" style="background-image: url('/assets/civictech.jpg');">
+      <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+        <h2 class="text-white text-2xl font-bold animate-fade-in">Categorie CivicTech</h2>
+      </div>
+    </div>
+    <!-- Slide 3 -->
+    <div class="w-full flex-shrink-0 h-[500px] bg-cover bg-center relative" style="background-image: url('/assets/edutech.jpg');">
+        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+        <h2 class="text-white text-4xl font-bold animate-fade-in">Categorie : EduTech</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Tailwind Custom Animations (à ajouter dans ton fichier CSS Tailwind config ou un fichier CSS) -->
+<style>
+@keyframes slide {
+  0% { transform: translateX(0%); }
+  33% { transform: translateX(-100%); }
+  66% { transform: translateX(-200%); }
+  100% { transform: translateX(0%); }
+}
+.animate-slide {
+  animation: slide 12s infinite ease-in-out;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 1s ease-out;
+}
+</style>
+
+</section>
+    <section class="py-16 bg-gradient-to-r from-blue-50 to-purple-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Sponsors & Partners</h2>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                <div class="bg-white rounded-lg shadow-sm flex justify-center items-center">
+                    <img src="./assets/ncloud.png" alt="Partner" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div class="bg-white rounded-lg shadow-sm flex flex-col items-center text-center">
+                    <img src="./assets/dev4.png" alt="Partner" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div class="bg-white rounded-lg shadow-sm flex flex-col items-center justify-center text-center">
+                    <img src="./assets/gab.png" alt="Partner" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div class="bg-white rounded-lg shadow-sm flex flex-col items-center justify-center text-center">
+                    <img src="./assets/gdg.png" alt="Partner" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div class="bg-white rounded-lg shadow-sm flex flex-col items-center text-center">
+                    <img src="./assets/dig.png" alt="Partner" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div class="bg-white rounded-lg shadow-sm flex flex-col items-center text-center">
+                    <img src="./assets/nvt.png" alt="Partner" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div class="bg-white rounded-lg shadow-sm flex flex-col items-center text-center">
+                    <img src="./assets/mlsa.png" alt="Partner" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div class="bg-white rounded-lg shadow-sm flex flex-col items-center text-center">
+                    <img src="./assets/sar.png" alt="Partner" class="w-full h-full object-cover rounded-lg">
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        
+                </p>
+                <button class="bg-purple-100 border justify-center items-center border-purple-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-md transition duration-300 ease-in-out font-medium shadow-sm">
+                    <i class="fas fa-handshake text-purple-600 text-1xl"></i>
+                    <a href="mailto:tccepiniger@gmail.com">Rejoignez l'aventure en devenant sponsor ou partenaire</a>
+                </button>
+            </div>
+        </div>
+    </section>
+
+     <!-- Section organizers -->
+     <section id="speakers" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Organizers</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="bg-indigo-50 rounded-xl shadow-md p-6 flex flex-col items-center text-center">
+                    <img src="assets/abba.jpg" alt="ABBA" class="w-24 h-24 rounded-full mb-3 object-cover border-4 border-indigo-300">
+                    <h3 class="font-medium text-gray-900">Idrissa ABBA</h3>
+                    <p class="text-xs text-gray-500 mb-2">Digital Creator | Developer</p>
+                    <p class="text-gray-700 text-sm">Co-Organizer</p>
+                </div>
+                    <div class="bg-indigo-50 rounded-xl shadow-md p-6 flex flex-col items-center text-center">
+                    <img src="https://www.tcc.hyver.org/storage/members/01JMCH17W6HH7R4QNMM4D46JFJ.jpg" alt="ABBA" class="w-24 h-24 rounded-full mb-3 object-cover border-4 border-indigo-300">
+                    <h3 class="font-medium text-gray-900">A. Penouel</h3>
+                    <p class="text-xs text-gray-500 mb-2">AI Student | Developer</p>
+                    <p class="text-gray-700 text-sm">Co-Organizer</p>
+                </div>
+                     <div class="bg-indigo-50 rounded-xl shadow-md p-6 flex flex-col items-center text-center">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEBASERIQEBISEA8VEhIQFRASFhASFRIWFhUVFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGi0dHR0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLTctLf/AABEIAOEA4QMBEQACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAEAAECAwUGB//EADsQAAEDAgUDAwIFAwEHBQAAAAEAAgMEEQUSITFBBlFhEyJxQpEUMlKBoSNiwbEHFRY1U+HxJDRDdIL/xAAaAQADAQEBAQAAAAAAAAAAAAAAAQIDBAUG/8QALxEAAgIBBAEEAgEDAwUAAAAAAAECEQMEEiExQQUTIlEyYXEUFUIjUpEGFjNTgf/aAAwDAQACEQMRAD8A7ZYnSMgBIASAEgBIASAEgBIASAEgBIASAEgBygCBQBG6VAZuN41DSxudI4ZgCWsvqSrxxc3QpTSR5nivWlRUbWZGfpcNV6eLSQi78nFkzXwZLXa37/6rqUa6MdwTm7LRP7IZJjgd0N2FtdFrHNDjfVTRanx8jTw3F5ae4Zazjqj24T/Ml4Y5OYs6tk0NZGGm/wDcP9VytSxu10cE1kxSVeDOrOm3MFqZwa0cO1JWTx458vtnfg9ZknWblGTd8ZyljmHl7tis5YpQ/HlHq48+DOt10W/hw5rnkh2m4WDn8qY1hdUukAZWLbdEy9v9Hra4jUSAEgBIASAEgBIASAEgBIASAEgBIASAGKAIkoAzOoMYZSQOlefAHk7JwxucqJk6PJ5YpKqQzVBJJPtadbDgr1YQWONHNJNhjaFvympfXRKxLyMcHDhobFUsjQSggSrw2WMaAuHK0UrMXEEjmINiNVoRJNBLTyhGdt9hUUmndNoX4r4hdJUuicHMPOvkdlVxapm0qyLYzvMNrhMwEADTXwuPJjUXZ4+bFLE6ZbMxsmj2h7R3Wdyj0RFrtMya7Ag5j/TcWAjRg2RshOSUlX7PRwerZsMbfyRzv/C8vcro/psH+40/7ll/60epLwz2xIASAEgBIASAEgBIASAEgBIAdADFADXQBElFjSELc6Dv2RXAq+zzTqOuNXM42IihJYQ7ZxHI7rXHS/kmr7M4SfFl2xba5HSLGm+q1SMZUXRKkjNmjC/QXF06M2zNxXBRJ7maFXGVEy5OemifC7UaeVqpWYuJbDLrmTa4ozaaNCN4cprwUnXJsYG5zX6E67Ll1MnHE5fR3YFjy/DJ5NwYo6PSRtwT9IXFg1UZ8y7MdV6Hf/hfBoxVcchs17bj6b6rp2tLd3Z4efDKHxa6L8qzuRxU/o1lwH3QkAJACQAkAJACQAkAJACQAkAJACJQBElAGbjmMR0sfqSkC5sAeSj8mooS+zOq8ZbLROcHem6RunhaSwNZFGyNycbOPnlLow1up0zEcnuuv+mUegx5N3EkUR019d/CuKa7NJxpfEuEBG+nZbo5Wy2OJWZsKZomSExd1DQ0QrcPZM3KR8KVOgaRyGKYa6nf3aVvDJaMZKidI7a2xVsy8mtRz5ZG276eVllipY2jWDqaOue0FuvIXzbjyz2lkfaOZxGJtOfUaMj+X3/Mu/TZcjqEeV9Ear28kHvXPgA/4ok/638L09s/9h439PjPXl4Z64kwEgBIASAEgBIASAEgBIASAEgCLkAMNUrA826qj/F1w1vHG3Vv03HPyrS28msJJIDmmBflBtG3bsfldEIynLczlz/CDcexxQNDw9r3WPA2XSnTPM/uktvtuPIZLBYEstmtoOFdryVptbt/Pooo6vPdrrBzdD/2ST/4PUlBZI7oBrY7K1I5JKiZaqsh8Fg2RY2XRyLOSJTGxGgFQwh29tCpjPaymlLg4gRGKUxuvou3cmrOeUaZpxSAODuyEt0aGnXJ2tPaQMd/aBZfNZoNTaR7OOSUUzF6xwCqka10bWljdSL62+F36CePDbn2zk1W7LLjpHHf7lqP+kPsV6n9dH7OT2ZHua8A9MSAEgBIASAEgBIASAEgBIASAGJSAiSmBm47iX4eB7xq+3taNz8Iih0cG8ZI3W/NIS49xfhdDRb55QLUUo9Fo/Ve61hwjHJHm2WYMAGlshuQfaezexTtnm6vRxp5Irk0TIwtuD4v3VbmeE3k8qgOuw8uAezRzdiP8p7m1R6Gg9ReJ7Z9E6CuzDK4ZXDe/PlEZvpn0k4RyQ3xDWvv4Wpxyx8cF7GX2TsxZCS40QnY0XU8pSlFCAMfwkPHqaByMc30Tkj5MCmIcQw73+66o3VmKXKPQ3yNpqdshFzYABeHgxT1GVwR6GbNHFDcyOE9VMk9r2kHzwt9Ro5YOzLT6yOXg2vx8Xdn2C4d7+zuqIWrJEgBIASAEgBIASAEgBIASAEgBIAqQByvWdM4y00gcQ1gdmbw5XAuJzL35nHgLaMTRLgIY4WseFsuDnnFtA9TREm7TbwFaaozjKiuRuVhYfaLaW48qoqLK/05rbtsGpsZMAs8l7e51VvGlyefn9Oxydw7LHVLHtz3yPvcW5HZNxjJUaYHl03EuixmJ5bZxa653GUP4PTj7WVfFmzRVLXD2kJrJZhlwbQgjurRyNEmWB0TYUPXSAsypQ/IHyjnenqQS18YG0bvf5+Vrqc2zGycMbmdD1fUuMojscgGnytfRYRjjc/LZw+sylKSjHo0em8IYGeo9oJf34XF6rm9zJ7a8HV6Vp9mPfLybP4KL9I+y8f2X9nr719Bq3IEgBIASAEgBIASAEkAkAOmAxQBEoAi7fxykI896kxUyVDmg6RGw8rWCNImbE5bxRbdBbWhax4MZ8kZKnKLWJ+ErTD22+EClzpNgR8rNyNIaawrDenWF2d9ye3H2T3cAqxfFAWJhjqoQN0yAPNuyuE/BhqaeNryaFRPC4hl23Og2utHuPmXPPid8mbU4LJG7PA437G5H2UxSZ6+j9VjkW3IbeE4gXAMlFnbX2Q010dmRRkviEznKTZUpWYqNMy8Trco0Pudo0HkrSFXa8CyQ5o6LobBPQjfM8H1J7F1/pP+F5us1HuzpdI6sWPYuezpXwtdu0H5GqxhNx6ZTin2iUbANALBNuxpUT18KaYySoQkAJACQAkAJACQAkAJADoAYoAg5AAmJTZIJXchjrfZIZ5YJM13nd2pXRBFIVO4kroXQ5Gi51mk7p+CPJHBcUjc8tfYHW11zStM60/jwa8cQc/TZNNDlJxjwaZaGtvtYK00jj/JnKMowZXzfUQW/sqhJWRnW2QKKOIlxcA2Rv5D2K6nK0S/bnFqXIRgPUI97JfblJGY82WWSNco8TUenv8ALGXy1zHODm7A/ZVF8cndplJY6l2XVNUAzOTfss6s6E/I/TODunkE87Pa03ZGeCNnLHNl2x2RLxxuVyOzq4nus5jslvp7rhh0zeb3P+C2jnfs9tvPdOgTDbpoGxKrJJIGJADoASAGQAwcgB7hDaAbMi0IcOCLvoBFHXYDEpWBF+yY0ZPVD7U7vIISXY7PObgNaF1RXBZU+saxwaRuFskxN8holBHPlC4E0wX/AHaHEuFwdToiUUWXYXi3pts+9xfdcck0+DtTht5OlwyrbUNsSNtFUZvpmGWEUt0DOp4ssj4z5IXRE5ckr58gmJ0DjcttfhaJmDhfK7MZ1E6RpY5uU3vccp3ZblSJ4ZSyB5a4drptpI5ZNs6XpHBv6krp3Bwzf02Xvp8LHPJ0tpeKPlnYikDnBzDlA0yjQWC4Xfk6rsNdpojgY7RdFhRU6K2xKdJku0K5S2om2EpliQAroAYlAEXFACCXAUNO4NGZxDR3KP4QAL8ZpxvMxaLFN/4isnBiUDvyyNJRLHNdoLDAbi4P7rOvsCNkcDEUwMnq8/8Ap/uknyCPNbXsV1w6NKLZaVsjgPq0sVruJhD5Dua+CTLICWHZ3BUXbOiceDVpi1wu1wBHHdWzFfRRiVB6jdW2ceVDimJSrhmLR0dRBIMmYNU7C4ZVF0zcjkcXZ3fmtZaRVEtKTtGkyUFtzwjsxeNp2QDwTwl0S4gWIVWUHI3M/wCho3JQmG1Gx0VgkrQ6oqSfUdqxu2QHgrmnkdjSOqjj7LO7KLDdVSE2Sa5JxGpDlTtDcNZPaK0WXSKHTChigCKHwBXUTtYMzyAPkXRFOTqIm6OTxnrhrRlp2iTi7tLLsxaO/wAiHI5iTEaiYkukcGn6b6BdaxY4E7iIibfXVXb8Dsvh9p9uh8JXfYWatBjMsf1Fw7ErPJhhJWUmdHRdSROHvOQ9guLJpZJWuhpmlFWxv2cP3XPsklyirOX6+xTK1kTSCS7X4KrGrZUTjjHoutJGpBs2SQOJ00SaH0deyphqIhHJa5HtdyFjdM327kYVdgtRTnPE0Pj3uTrb4Wm9MmWOPfkvwrGmTZmm4c0bEW1Ts55wsvlrvsFasycDLfVnMbJ39mkWkXQVJKzboJSCWvu4Bu6XN8mDkdVg+DtZ/UeA552v9J7hZZJu+ARs+osyuC1qQySBUMWosTREtVpk0NlTsVFllBqMErAY34RQ6MfH+oo6VlvzSEaNG7T5CvHilOX6Is83rcQnqXl8z7a+0N0s3sV62PFGC4M5SIxNAOnCpozbGll4HPPZNIaHZK46D9ylRVhDHgC3PdICxsn378I4EUTTG5DQXv5DVskquToxeR7viroiyqkzBpzxnsbhZznBLwzXFvfaoErJnOkzkk2tv4XC5KT4R2RRcJri91PT5LQT+GEjLKkZyszw2WncDqWJSimbQy8G9Q9X2sLG3Z2qz20OUwfFIxM71YrMdzwPsqSOeTkVteQ33G55stEwsBkvupfImydK9znhkYJcSobIbO5wjAHR5XSEEGxIG4KzcyaOjBv8LIpE42pjLmqQsRQFjgoGM5NCI3VCLXBcDynRGNlblpCdilGjnOquphTD0me6Zw2/SDyuzFieR/o55So88u57y+Vxe47k8r1YQUFSMtwnPtcq0/onyQa42uqVeR0WRQ3FzoOyT/QFhm4Gn+UBYwb30/ykMrrK0NADdSSAPkqowtX9EZJv8V2ztuksFEUYkkF5HDUlePqs8ss+Okexp9MsUEl+XllX+0GNjKf1g0eoLAd7FTp73UKadOzgr6DuV2Ri0zC6QM2fK7XZKXZKmaNLX2U9mnDDHVwcLHVFNE0ASw66BHYE453AaaJ0DkhhUaElJkMaibLUvDIGF2tnHbKO6L2ohnpHT/TrKVoc73ydzuCuSU7YtpuD3fKkdEgLAJgWEpiKy88FVQiTZDyNENAi0KChnIAimBK5K54wiuTXdRyvVnVjKcelF75XdtQ35XZptJLK7fCMp5aOCkeXuMshzPP7r1I4ow4RzSm5Oyp0+6ukQQY7OdEDSC2kNCVWPoQkJ22R0VVkva0I7HtS5B5KjS50AWmx9Im9qs2ui8IEzzPINBcNB57Fef6jqqXtwOzRaZv/AFJHoUbdAPsvKj0eo5OMbZ5z1/iJkqo4Gm7A05/Dgu3TR7f0cWaT3JLyc/KunkzfdAz2XCdJmMo0VBjhsk4ijJhVPOObpbDX3C99ZfYFHtsiWVeR4w53BS9tg8saNLD8CMrmhxsDulta5IeWPg9Pw6gjhY1sbGjQe4AAk/K4buTNFyXhv3UrsTJBoCsBwmSOgRFnZUApHWugB2y90MCuoebFCAB/Eef5V2goxOrusvTaYqX3udpnb9N+U9No3P8APgU8i8HCRR2Je85pH6uceSvVfCUY+DC77Gc6yf8AJMlT4AppLu8cp7bFYVFM1guhQa5BySQ7GvdqGktT+PllXKuEI1WXf22/hHD65CMn5K21bSCSdOypQkgU0gnC8OfVPAIIivqf1Bcuq1fsKl+TN8GD3clv8T0uljbE1rBw0Cy8CT3Nt9nuRSXC6KMZxkU0TpDvY5B3KMUZZJbV5FllGELkeY0s+d8kz95HFwvxfhe48OyKSPIjl3PcXSEE6LJxkuzoUkypsGpul0TwxNi1V2ZNIu/DjsqTIYRTx24VWZyRp04KTJkjYo5A0XOlkqvgmjrMOrmSsBBvbRedlxSTtHVjfAYw7rNdD8jXCYCI7JiGAO6AHdfhUmIRHcIChSN7IvkQHWS+wtOnZKbopIxvRWPuFUecU5+/dfRcHm7muyM09vKtQ8sJySXxJUlG6c63azvsVlPPHHx2a4sM5qzej6TgtrI8lcktZLwdMdLb5L4sEiYR9dv1LCepm12dOPRQUuTTiDBoGtHhY75PtnV7MUqSLfwkLt42G/hNTkumZ+3FeASfpSITh4HtcB7OPstHrMm3bZm9NB80bFPSNa4hgDQzgLgm3OVy7O6O3HjSS7Lagixe42DQTf4Uq938hKW1HmON4iayU2JETT7PJXu6bTRwQv8AyZ4+bNLLL9AGrTbgLe2mS0q4HD/KGrJUmixshU+2ivdZYyYhL2kLcXMrHD6Qn7KJsuZiQ/T/AAn7aHYRHiRI0CnYgCYpHu32SUUBoU1SYgHNJ31AVSUWqY0zuMJrGzRAg+62oXk5sTxvjotOwsC6zKJgfZNfsBPSQiLHX8KgJBthqUARJSXYjOrX3c24GpU5eioi/DrlLPGqaQusxupP8L6uTS+T6PKfydRXJ0uHYSxgDnC715mbO8jpOkepi0ixxt8stlcQdBZc8l9s7YfFUG07yUrQkvkFAaXWT7OhtJFcjNiEIE0XU54VGczdobOGZ35hss5umH6QnOs4G2+5WcuHZrstHI/7RMVyMELD7nEHT9K7/TsSyT3S6R5+rytLauzi2MsAQvXl8pHFHhD37pUKRIRgoEWNhQgLGwFFgy5kTu4Q2IuEJHIS3IZay9holaGFwxaapWgbC6UAacKGrCwqiqHxS5wfYTq1E4KcaEmdvC8PaHjW4+y8icXB0zZEmO/ZIdFpCEwG9O/hMBWIQBXUyJoTMmoJMjfBWWRlrgOWND3I8zw6iZENACe69TLknPh9G0MUIdLk0mSX3XNXg6JStDyRpsE6JR+0pUhp8hkOt/g2SKkuAShlcbsd+YX0Q1RKYRGSHJF0acEmlx3SyrixY/jIbFsVbBEXSGwtp5WEIyySUYl5ZKHyfg8sq6t00plfruG3/Svo8WJYo0jxMk3Oe4iHlaslFrdfhJBZPblDQnwSbIhCJtl8p0gsJjnSaEWsnb8lQ4hYTHUHQBoSpDCYpSPzAWS4QEhODzbXZHRSLHT6HXRK6YE6DqQ0r253FzHECx4JUZMKyKwUuT0IyB0bXMs4EXuvKa5qRsmRE+UtB5R+kKwq99kihnFNisEqnW0TvgS7Mtkp9V2nwud8jy8Kwr1T2U8HF7p5/F+UL0sh7clTCIna2O/Cy4KLWk7FSVwPGblwPGyQF0MmUj5R2O2W4k3K5kjd5DZ3gKKsSlXY5Nrp14LvywzDn2Dr7BpKqvBnJq930ecY9iD56h4cbsYfYBsflejptPHFHcvJ5upzTyz5BGrrsyJNYmIsTFY7fKAXI5N9Agl/RY1oCQMsa/nhAFkdVw0a90mIs9R31W//AClRRbHI0bEn5S2jbL2VXi6KJsLp52289lLQ7DbxyNLQG6jXMBp8KUnF2Dd9Gj0viTKZnoOcS0E5S431PlY6jBLJ8ojhl28M65kzXNuLO8jVec7i6fZ0cNWiEczr24VbVViV+S6QKU9w2A1T9D8FRJ8FJWZVGdC7k91m38TLUtqDLfUcufceH7jONhFteF6nZ9flVMKewWDxwsW+aK8EjuCVolSIJyDQO4G6hstEgNj3Ssd/QVkzxPbyG+3wUUyZc8mJRY1GbxvNnM0d5K1jhk+S4ZIT+IbJWhzXRRH3OaRccApRXyPO9Q9Sw6fH8eWcBOz0pHRuN3NOru69aEW1x0efj1G+KyfZa1WkaKTfLLA0qgJXsgViCY+h79kA+eSeXS50UiZXFIXmw0bz5QHgKbK1mwTERfNpqbXQBAP/AGH+qLAtie9xsPaO/dDEwn1LaA+7kpUTuCaR9tzdD5QXXQb/AEnCziB5UqcodCasKwrEnUxIEnqsJ0Z2CjNhWZXVMrHlcOGd1htWyVocwgnkdl5OTDKDp9HVGe7oumGh7qV2X4MqvuGFYzZceimiaPTHBWc38TPVNbGSXFuPCtHFUT7tsvbfZ9dO5M06OPM0tKzkOMqRWNi02zA/wlbsV/QRSe4FpGhQ7XIwOCS5cy4uHaDwknyP+AyOrbC15e4Wt3WsackiXLwzbw7AqeSnMjWNLpWl4Nh2Xg6nX5sWqpPizknplN8No8sfjs0ckoDGAgubqLEAFfVQSnGM/s8Sfp2OVqTfBv4LQRvg9WQBz5Rck8FeVrdVkx5dsXwfc+kem4MmkiqOalpiyRzT3JHwvfwZY5Makj5fUYZYM8oP/wCEhIRwtbM3J1Q/kp15J5oR1SAVgBcoGUvfmOugRRJa5wAsP4R0FkdGi5OvCGwIsN9T/wCEqCyxpvvsFRLZa6psLBKhEWE6G+pVIAhl+6CWw2GQDfUKWJMOgq2ct+wU8+Cm15DsPrBG7NGXD+3hEkpra0TGVcnX0OJCVl9nDcLyc+D23Z2wyqaoCxF5NmjuF585Vydi5LnRWaETkvbs5dTXtu+yvIVw+4jwOTzE4w2MXab+AvdcXZ9dlzw8BlN1g0C+XKfKUsbZlDPCh6GSWdzqiM3aAbjvbhP2G1YS1uOMttWFYTj4mf6dxA69rO5UrHfDKnrVFfFWVdQ4NOyZrqcOddpLnDa66o48e2mcH9Xl3Wc1ibaix9cObfRpOgcey0x4oL8RZM85dnpPRHVVPHR5Znta+Ntg1x1Oi+c9T9LzZM26C4Z048yUeziaullrppaiJpYw5mg97cr6HR6XJHCos4s+qhBvd5Nnp+klYwskP5fyrHWejZc0lOLPY9J/6l0ung8eTx0A9T4e6NzZCbggajhdOi0s9PDZN2ZeqeoaX1DIsmn7SMYvPGy7qR5jXgtDNuyhsp8cDyyBu2qBAzQXG52TE2WMZfZU3QmNJIGeSs2xIpHc69kkgbLGgnU6BXYiWbTwlYEc2lymmIdru2pKYBYBsNdUrIJxzgbapiDIah520CVeQQZE941ujvoLDqWsexwOUjueFM4qaqQtzg+DoWVAlLSDewF7L57VYZYZc9HrYs8Zx47CJCCfaf8AsuPUcJHDrXwP6Tv1BcVHk7JnhsMXdfWqJ7HRe2nC1UEyGbGAY06jP5Q6N35geL7lVKPANKR0GNYAyrhZVUdmvFzYWBJ8rmaphH49kelepnOk9CYlj2gt15IUv5P6NCvqZzqrNCG++mHqEjW4PlbQdcEJV2caGNduLOG4Omq6oTuNFVXJ2GA9TwwU4if7CCdAFotTCD+R5+o0GTM7C2dWUu+Y/Zaf3LG1SOV+jyl2jL6lx1tU0Rxj2Ag5ubjhZvIpco7tFoVpeTLjtsg7JKxpZraBKiH2Usbc3RQ7CGsFuyCWweoqbaNUN2NFDNTcpJA2XD+Fd8EjGYnRSnYxidLJOXgBDWw4TQUTfIGmw1P+iW/mgoZrzyVaJoIjd2H7qyWHMiduD86pNktBcER5epuhBLGSN1Ds4/SSi0NcGhh1SAQW6XPubx5UZsaywqQY3slwdKYAHNLdjuvldTj2OrNtZUqdhnpN7rkuJzXH7PDomaL7HYdrLmMVpGTYntv5VJAuwrA8UfSSh/udFf3sHbwFnPHwW+TqMawKKtZ+JgNnkfQbZb8OtyuXZyG6gDo7Evwsroaga/qd9Wu1zutP2D5QVjuBsqDJJE305M3svoHDwOVeN1wQp0zlKmkEbskls/IVpQma20RdE0aWWiwxF7rHDLbK4wUeAsd79ExWRijJSAvADQlZDA5JydApbKQzYkCLo2W1TAqnk4CmQUThajoCMh1UsRW+fILbkqJzpUWkNFHyd04KkKQSALalapkljXg+fhWSwiAN/vF/JRyKwxsTf7vunyS2WRQi/tzh3kmyGnQJmnCSRZ9s3GX/AClfgmK5Ogweqc4Fjjq3leB63gcWskemE22qNOzu4Xzu+Jy7ZHjkQ00X365PTbJhPgiyTCmHkZwv8J9g5V0GdOYu+kl3PouuXM4J7rGUPopU+zo8Ww/8eyOohYA1jsxcPrtwuSn0NOuDNw7q/JKYp47ta7KHH/4/C1b+huCZ0mNYHT1UfqNyibLcOG5HAUp7RJvycXWdPVMTQ4Rl4G57LWGVfY+DNdna3M4ENvb91vvt0IsjjvqUASdOAdEOSFyCulvpdS2hjxxixN9eAnXFifBdl0QTdlE82lgpbGkRiapLLC62ycn9EsrOnuKz3KhpFcLLnM79lCW7ljLPU7brTdYLkubD3W0VZEmkENFrZQtKrsyb+jQihza2UPJBdspYcj5SC4aQ8pe7D7F7GX6LHttubKlOLfDJljnFcou1FiBfyh9kqX2aWFVF3jzuVz66CngcSoc9nTXH6l8b/bJ/RVI8dg2X28eC2TerryIRQMRQhUQy33RQ0GYbj89GHiKxY4WyuvYfAWU8dlHSR4fR10UYJy1Ejcz8tgMy53FoaZzlTRVdE5z2lz26tF7nRKMU+StyZ0OB9awiJscweZCLO00uqWJ+BVYb0/PHWwzGVsbbPc1oFhpwflJx2PgVUD13SbDFHFC7VpJc4ncHyiOeTk2wZiwdGPdIY3nU3LHDaw7lVPMkhoCxDpqopvTL8jhI/IMmpHkqo5otAQxLDnU72h9jm2y62+VvBqSsiQBNLwk2CRCNl91BRZJpsmhDMbop6GCzvzODRsN1hkdukUiTn3Ia3ZJSfQSSRY1uum/K2jS7JkuODUo6Yn/N1OTUKP4m+LQylzM2KaBjfJ8rlcp5ObO2GDHBUHslA2ATUX5G2kGwyjsEbWZ2HQyMIsWN+y0qSXBlKvIn4Uxxuw2dbY7Jwyyj2YT08ZdALKIxyC+9+Nl0vIpwOSWFwNbMe4XLtRFyPLKf8q7oqzZkyruiRJDIFNDHQSRITRSGhDo3iSI5XjlDimOzrML61DrR1LPYN3G1r91zSx7eYhtQVjPTlLOz1qd7Yy7Uv3BWO+alyUrMqbpmWJrWwS/1XWOUbkd0ZZ7lZSf2acdLVxQFrryPA9rhwVEek/sTZz8tVibGlzswaDroNURhcuyrVGnD1jGW+6B12jW53PK3eCujN9nM1leZZHPOgJ9rT9K0TcVSBoHAulYWSJsgLIjukwITT2b5WeSfFFIHiFge7llHgsuvlHkp2kFWGUTRcfyssk2+jbT403bNRsh2Cw2t9HfK2EwvWsVXZPPgMjK03fQ2kwmKSypMjag2KRUmzKaQZDPr2VbbXJi+DShe1+jgs2qjwT2E/gI+38rnthtPG4dl7GPo42WScJS7EM5UwIHdCGOECXY79gmihRJeSGBV/wCX9030axO0wT/l8fx/lcc/yLOgpf8AmEH/ANYf4WEvxYS7OgrNil4RmzJ6n/8Aan4VotdHkzufkr0P8SCo7hYPopE41KJGerAc7JPsYFMuaf5FomPpS8lDy/mH7KZFLo0KL8zv2WR14fxNKm5Tx9nTHovZulk7Gg6FOBkvJc/dbIlhMS0RlILYrfRjI0qLdvysH0ETZWBof//Z" alt="ABBA" class="w-24 h-24 rounded-full mb-3 object-cover border-4 border-indigo-300">
+                    <h3 class="font-medium text-gray-900">A. Isaack</h3>
+                    <p class="text-xs text-gray-500 mb-2">Developer | GDG Cloud Niamey</p>
+                    <p class="text-gray-700 text-sm">Co-Organizer</p>
+                </div>
+                    <div class="bg-indigo-50 rounded-xl shadow-md p-6 flex flex-col items-center text-center">
+                    <img src="https://www.tcc.hyver.org/storage/members/member_684333ecb6bac1.47757047.jpg" alt="Amos" class="w-24 h-24 rounded-full mb-3 object-cover border-4 border-indigo-300">
+                    <h3 class="font-medium text-gray-900">Amos .I</h3>
+                    <p class="text-xs text-gray-500 mb-2">Developer</p>
+                    <p class="text-gray-700 text-sm">Co-Organizer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+<footer class="relative mt-24 overflow-hidden bg-gradient-to-br from-indigo-900 via-gray-900 to-black text-gray-300 py-24">
+
+  <!-- Glow background -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-indigo-600/30 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 right-0 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Glass cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+
+      <!-- Card 1 -->
+      <div class="glass-footer-card">
+        <img src="./assets/icon.png" alt="icon devweek" class="w-20 mb-5">
+
+        <p class="text-gray-300 text-sm mb-6 leading-relaxed">
+          Connecter les passionnés, professionnels et apprenants de la tech
+          pour partager et collaborer.
+        </p>
+
+        <div class="flex space-x-5 text-xl">
+          <a href="#" class="social-glow"><i class="fab fa-twitter"></i></a>
+          <a href="https://github.com/tccepiniger" class="social-glow"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/company/tccepiniger" class="social-glow"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61572467386089" class="social-glow"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="glass-footer-card">
+        <h3 class="text-white text-lg font-semibold mb-6">Communauté</h3>
+        <ul class="space-y-4 text-sm">
+          <li><a href="https://www.tcc.hyver.org/" class="footer-link">TCClubs</a></li>
+          <li><a href="https://www.tcc.hyver.org/c/ecole-privee-dingenierie-du-niger-epi-niger" class="footer-link">TCC-EPI</a></li>
+          <li><a href="https://www.tcc.hyver.org/c/african-developpement-university-adu" class="footer-link">TCC-ADU</a></li>
+          <li><a href="https://www.tcc.hyver.org/c/ecole-superieure-des-communications-electroniques-et-de-la-poste-escep" class="footer-link">TCC-ESCEP</a></li>
+        </ul>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="glass-footer-card">
+        <h3 class="text-white text-lg font-semibold mb-6">Liens rapides</h3>
+        <ul class="space-y-4 text-sm">
+          <li><a href="#" class="footer-link">À propos</a></li>
+          <li><a href="#" class="footer-link">Contact</a></li>
+          <li><a href="#" class="footer-link">About</a></li>
+          <li><a href="#" class="footer-link">Programme</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom -->
+    <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+
+      <p class="text-gray-400 text-center md:text-left">
+        &copy; DevWeek 2025. Tous droits réservés TCClubs Niger.  
+        Made with ❤️ by
+        <a href="mailto:idriss.abba@devweek.org" class="footer-link font-medium">
+          ABBUSS
+        </a>
+      </p>
+
+      <a href="mailto:idrissabba14@gmail.com"
+         class="mt-4 md:mt-0 footer-link">
+        Contactez-nous
+      </a>
+    </div>
+
+  </div>
+</footer>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+      <script>
+    const openModal = document.getElementById('openModal');
+    const closeModal = document.getElementById('closeModal');
+    const modal = document.getElementById('modal');
+
+    // Ouvrir le modal
+    openModal.addEventListener('click', () => {
+      modal.classList.remove('hidden');
+    });
+
+    // Fermer le modal
+    closeModal.addEventListener('click', () => {
+      modal.classList.add('hidden');
+    });
+
+    // Fermer en cliquant en dehors du contenu
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+      }
+    });
+
+            function updateCountdown() {
+            const eventDate = new Date('january 01, 2026 12:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById('countdown').innerHTML = `
+            
+                <div class="flex gap-2 justify-start p-2 pl-0">
+                    <div class="bg-indigo-600 text-white px-4 py-2 rounded-lg">${days} <span class="text-xs">jours</span></div>
+                    <div class="bg-white-600 border border-indigo-600 text-indigo px-4 py-2 rounded-lg">${hours} <span class="text-xs">heures</span></div>
+                    <div class="bg-indigo-600 text-white px-4 py-2 rounded-lg">${minutes} <span class="text-xs">minutes</span></div>
+                    <div class="bg-white-600 border border-indigo-600 text-indigo px-4 py-2 rounded-lg">${seconds} <span class="text-xs">secondes</span></div>
+                </div>
+            `;
+            if(distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById('countdown').innerHTML = "L'événement a commencé! Il est encore temps de vous inscrire.";
+            }
+        }
+        updateCountdown();
+        const countdownTimer = setInterval(updateCountdown, 1000);
+  </script>
+
+  <script>
+const counters = document.querySelectorAll('.counter');
+let started = false;
+
+function animateCounters() {
+  if (started) return;
+  started = true;
+
+  counters.forEach(counter => {
+    const target = +counter.dataset.target;
+    let value = 0;
+    const step = target / 90;
+
+    const update = () => {
+      value += step;
+      if (value < target) {
+        counter.innerText = Math.ceil(value);
+        requestAnimationFrame(update);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    update();
+  });
+}
+
+const impactObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      animateCounters();
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.scroll-animate')
+  .forEach(el => impactObserver.observe(el));
+</script>
+
+
+
+  <script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.scroll-animate')
+    .forEach(el => observer.observe(el));
+
+    
+</script>
+
+
+    <script> 
+        
+function showNotification(message, type = 'success') {
+  const container = document.getElementById("notification-container");
+  const notif = document.createElement("div");
+
+  let bgColor, textColor, iconSVG;
+
+  if (type === "success") {
+    bgColor = "bg-green-100";
+    textColor = "text-green-800";
+    iconSVG = `
+      <svg class="w-6 h-6 mr-2 text-green-600" fill="none" stroke="currentColor"
+           stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M5 13l4 4L19 7" />
+      </svg>`;
+  } else {
+    bgColor = "bg-red-100";
+    textColor = "text-red-800";
+    iconSVG = `
+      <svg class="w-6 h-6 mr-2 text-red-600" fill="none" stroke="currentColor"
+           stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12" />
+      </svg>`;
+  }
+
+  notif.className = `flex items-center p-4 max-w-xs rounded-lg shadow-lg transition-all duration-500 transform translate-x-full opacity-0 ${bgColor} ${textColor}`;
+  notif.innerHTML = `${iconSVG}<span>${message}</span>`;
+  container.appendChild(notif);
+
+  setTimeout(() => {
+    notif.classList.remove("translate-x-full", "opacity-0");
+    notif.classList.add("translate-x-0", "opacity-100");
+  }, 10);
+
+  setTimeout(() => {
+    notif.classList.remove("translate-x-0", "opacity-100");
+    notif.classList.add("translate-x-full", "opacity-0");
+    setTimeout(() => notif.remove(), 500);
+  }, 4000);
+}
+
+// Gérer la soumission du formulaire
+document.getElementById("register-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  // Tu peux ici envoyer les données via fetch/AJAX/Google Sheets/API, etc.
+  // Pour la démo, on suppose que c’est un succès
+  const nom = document.getElementById("nom").value;
+  const email = document.getElementById("email").value;
+
+  if (nom && email) {
+    showNotification("Inscription réussie ! 🎉", "success");
+    this.reset(); // Réinitialiser le formulaire
+  } else {
+    showNotification("Veuillez remplir tous les champs obligatoires.", "error");
+  }
+});
+
+        // Navigation entre sections (design index2 + fonctionnalités index3)
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('data-section');
+                // Masquer toutes les sections
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.add('hidden');
+                });
+                // Afficher la section sélectionnée
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
+                    targetSection.classList.add('animated');
+                    setTimeout(() => {
+                        targetSection.classList.remove('animated');
+                    }, 500);
                 }
-            }
-
-            function downloadCanvas() {
-                // Sauvegarder l'état actuel du canvas
-                const currentWidth = canvas.getWidth();
-                const currentHeight = canvas.getHeight();
-                const objects = canvas.getObjects();
-
-                // Redimensionner temporairement le canvas à 1080x1080
-                canvas.setWidth(EXPORT_SIZE);
-                canvas.setHeight(EXPORT_SIZE);
-
-                // Mettre à l'échelle tous les objets pour la haute résolution
-                const scale = EXPORT_SIZE / currentWidth;
-                objects.forEach(obj => {
-                    const originalScaleX = obj.scaleX;
-                    const originalScaleY = obj.scaleY;
-                    const originalLeft = obj.left;
-                    const originalTop = obj.top;
-
-                    obj.scaleX = originalScaleX * scale;
-                    obj.scaleY = originalScaleY * scale;
-                    obj.left = originalLeft * scale;
-                    obj.top = originalTop * scale;
-                    obj.setCoords();
+                // Mettre à jour la navigation active
+                document.querySelectorAll('.nav-link').forEach(navLink => {
+                    navLink.classList.remove('current');
                 });
+                this.classList.add('current');
+                // Défilement vers le haut
+                window.scrollTo(0, 0);
+                // Fermer le menu mobile si ouvert
+                const menu = document.getElementById('mobile-menu');
+                if (menu && !menu.classList.contains('hidden')) {
+                    menu.classList.add('hidden');
+                }
+            });
+        });
 
-                // Rendre le canvas
-                canvas.renderAll();
+        // Par défaut, afficher la section home
+        document.querySelectorAll('.section').forEach(section => {
+            section.classList.add('hidden');
+        });
+        document.getElementById('home').classList.remove('hidden');
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('current');
+        });
+        document.querySelector('.nav-link[data-section="home"]').classList.add('current');
 
-                // Créer le lien de téléchargement
-                const link = document.createElement('a');
-                link.download = 'devweek.jpg';
-                link.href = canvas.toDataURL({
-                    format: 'jpeg',
-                    quality: 1.0,
-                    multiplier: 1
-                });
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
 
-                // Restaurer la taille et l'échelle originales
-                canvas.setWidth(currentWidth);
-                canvas.setHeight(currentHeight);
+        // Formulaire newsletter
+        // (remplacé par une alerte pour la démo)
+        // Ajoutez un formulaire dans la section home si besoin
+   // Formulaire d'inscription
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nom = document.getElementById('nom').value;
+            const email = document.getElementById('email').value;
+            const numero = document.getElementById('numero').value;
 
-                objects.forEach(obj => {
-                    const originalScaleX = obj.scaleX / scale;
-                    const originalScaleY = obj.scaleY / scale;
-                    const originalLeft = obj.left / scale;
-                    const originalTop = obj.top / scale;
-
-                    obj.scaleX = originalScaleX;
-                    obj.scaleY = originalScaleY;
-                    obj.left = originalLeft;
-                    obj.top = originalTop;
-                    obj.setCoords();
-                });
-
-                canvas.renderAll();
-
-                // Déclencher le téléchargement
-                link.click();
+            if (nom && email && numero) {
+                alert(`Merci ${nom} pour votre inscription à DevWeek 2025!  ${email}`);
+                this.reset();
+            } else {
+                alert('Veuillez remplir tous les champs obligatoires (*)');
             }
         });
+//////////////////
+
+       // Formulaire de contact
+       document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.elements['email'].value;
+            const message = this.elements['message'].value;
+            if(email && message) {
+                alert('Merci pour votre message! Nous vous répondrons dans les plus brefs délais.');
+                this.reset();
+            } else {
+                alert('Veuillez remplir tous les champs obligatoires (*)');
+            }
+        });
+
+        // recuperer les donnees du formulaire 
+
+        document.getElementById("register-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const payload = {
+                nom: document.getElementById("nom").value,
+                email: document.getElementById("email").value,
+                numero: document.getElementById("numero").value,
+                structure: document.getElementById("structure").value,
+                profession: document.getElementById("profession").value,
+            };
+
+            fetch("https://script.google.com/macros/s/AKfycbxD254waYnKG7i9CfhJ0Iu63CKpH4E_iYhV0ta9gtGS70v56MmTDkSyvUMgDandqIKErQ/exec", {
+                method: "POST",
+                body: JSON.stringify(payload)
+
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.result === "success") {
+                    document.getElementById("register-form").reset();
+                }
+            });
+        });
+
+
+    ////////////////
+
+
+        // Formulaire de contact
+        document.getElementById('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.elements['email'].value;
+            const message = this.elements['message'].value;
+            if(email && message) {
+                alert('Merci pour votre message! Nous vous répondrons dans les plus brefs délais.');
+                this.reset();
+            } else {
+                alert('Veuillez remplir tous les champs obligatoires (*)');
+            }
+        });
+
+        // recuperer les donnees du formulaire 
+
+        document.getElementById("register-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const payload = {
+                nom: document.getElementById("nom").value,
+                email: document.getElementById("email").value,
+                numero: document.getElementById("numero").value,
+                structure: document.getElementById("structure").value,
+                profession: document.getElementById("profession").value,
+            };
+
+            fetch("https://script.google.com/macros/s/AKfycbxD254waYnKG7i9CfhJ0Iu63CKpH4E_iYhV0ta9gtGS70v56MmTDkSyvUMgDandqIKErQ/exec", {
+                method: "POST",
+                body: JSON.stringify(payload)
+
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.result === "success") {
+                    document.getElementById("register-form").reset();
+                }
+            });
+        });
+
+///////////////////
+        document.getElementById("form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const data = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                objet: document.getElementById("objet").value,
+                message: document.getElementById("message").value,
+           
+            };
+
+            fetch("https://script.google.com/macros/s/AKfycbxgXFqvz3y_FJVQ1rXml14mwuiqIbPnd_OakLQevR3QS11f40WUES2XN0x_UTSUy5Vb8g/exec", {
+                method: "POST",
+                body: JSON.stringify(data),
+
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.result === "success") {
+                    document.getElementById("form").reset();
+                }
+            });
+        });
+
+        // sponsors 
+            document.getElementById("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const data = {
+            name: e.target.name.value,
+            email: e.target.email.value,
+            objet: e.target.objet.value,
+            message: e.target.message.value,
+            };
+
+            fetch("https://script.google.com/macros/s/AKfycbxgXFqvz3y_FJVQ1rXml14mwuiqIbPnd_OakLQevR3QS11f40WUES2XN0x_UTSUy5Vb8g/exec", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+            })
+                .then(res => res.json())
+                .then(res => alert(res.message))
+                .catch(err => alert("Erreur: " + err.message));
+            });
+
+
     </script>
         <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJ47NXBX"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 </body>
-
 </html>
